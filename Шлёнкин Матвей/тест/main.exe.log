@@ -1,0 +1,100 @@
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Шлёнкин Матвей\тест\main.exe, файл: c:\codeblocks\codeblocks\mingw\include\txlib.h, строка: 13722, функция: bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double, unsigned int),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x005082FC (32-bit), Flags: CMdRe0, Thread: 0x2304 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double, unsigned int) at c:\codeblocks\codeblocks\mingw\include\txlib.h:13722:
+
+  13720:     {
+  13721: $1  if (_TX_HDC_FAILED (destImage))   return false;
+=>13722: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  13723: 
+  13724: $   POINT size = txGetExtent (sourceImage);
+
+# 1 in int main() at C:\Шлёнкин Матвей\тест\main.cpp:40:
+
+     38:      txSetTextAlign (TA_CENTER);
+     39:      txTextOut (490,80, "1.Столица России");
+=>   40:      txBitBlt(txDC(),30,250,280,300,amst);
+     41:      txDrawText(30,560,310,630,"Амстердам");
+     42:      txBitBlt(txDC(),350,250,280,300,chelyab);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	May 15 2025 09:30:18, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	May 15 2025 09:30:50
+
+Run file:	C:\Шлёнкин Матвей\тест\main.exe
+Directory:	C:\Шлёнкин Матвей\тест
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Шлёнкин Матвей\тест\main.exe, файл: c:\codeblocks\codeblocks\mingw\include\txlib.h, строка: 13722, функция: bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double, unsigned int),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x005082FC (32-bit), Flags: CMdRe0, Thread: 0x249C (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double, unsigned int) at c:\codeblocks\codeblocks\mingw\include\txlib.h:13722:
+
+  13720:     {
+  13721: $1  if (_TX_HDC_FAILED (destImage))   return false;
+=>13722: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  13723: 
+  13724: $   POINT size = txGetExtent (sourceImage);
+
+# 1 in int main() at C:\Шлёнкин Матвей\тест\main.cpp:63:
+
+     61:          txDeleteDC(chelyab);
+     62:          txTextOut (490,80, "2.Столица Нидерландов");
+=>   63:          txBitBlt(txDC(),30,250,280,300,mosc);
+     64:          txDrawText(30,560,310,630,"Москва");
+     65:          txBitBlt(txDC(),350,250,280,300,amst);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	May 15 2025 09:31:20, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	May 15 2025 09:31:38
+
+Run file:	C:\Шлёнкин Матвей\тест\main.exe
+Directory:	C:\Шлёнкин Матвей\тест
+
+--------------------------------------------------

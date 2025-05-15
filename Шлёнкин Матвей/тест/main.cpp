@@ -19,34 +19,67 @@ void drawMaket()
 
 }
 
+struct Forma
+{
+
+  string text_question;
+  HDC picture_answer1;
+  string text_answer1;
+  HDC picture_answer2;
+  string text_answer2;
+  HDC picture_answer3;
+  string text_answer3;
+
+  void draw()
+  {
+     txTextOut (490,80, text_question.c_str());
+     txBitBlt(txDC(),30,250,280,300,picture_answer1);
+     txDrawText(30,560,310,630,text_answer1.c_str());
+     txBitBlt(txDC(),350,250,280,300,picture_answer2);
+     txDrawText(350,560,620,630,text_answer2.c_str());
+     txBitBlt(txDC(),650,250,280,300,picture_answer3);
+     txDrawText(650,560,930,630,text_answer3.c_str());
+  }
+
+
+
+};
+
 
 int main()
 {
 txCreateWindow (1000, 700);
 txTextCursor (false);
-HDC amst = txLoadImage ("Pictures/Амстердам.bmp");
-HDC mosc = txLoadImage ("Pictures/Москва.bmp");
-HDC chelyab = txLoadImage ("Pictures/Челябинск.bmp");
-int count_question = 1;
+
+
+Forma form1 = {"1.Столица России",txLoadImage ("Pictures/Амстердам.bmp"),"Амстердам",txLoadImage ("Pictures/Челябинск.bmp"),"Челябинск", txLoadImage ("Pictures/Москва.bmp"),"Москва"};
+Forma form2 = {"2.Столица Нидерландов",txLoadImage ("Pictures/Амстердам.bmp"),"Амстердам",txLoadImage ("Pictures/Челябинск.bmp"),"Челябинск",txLoadImage ("Pictures/Москва.bmp"),"Москва"};
+Forma form3 = {"3.",txLoadImage ("Pictures/Амстердам.bmp"),"Амстердам",txLoadImage ("Pictures/Челябинск.bmp"),"Челябинск",txLoadImage ("Pictures/Москва.bmp"),"Москва"};
+
+int count_question = 3;
 int num_question = 1;
     while (num_question <= count_question)
     {
+     txSetFillColor(TX_BLACK);
+     txClear();
      txBegin();
      drawMaket();
      txSetColor (TX_WHITE);
      txSelectFont ("Comic Sans", 60);
      txSetTextAlign (TA_CENTER);
-     txTextOut (490,80, "1.Столица России");
-     txBitBlt(txDC(),30,250,280,300,amst);
-     txDrawText(30,560,310,630,"Амстердам");
-     txBitBlt(txDC(),350,250,280,300,chelyab);
-     txDrawText(350,560,620,630,"Челябинск");
-     txBitBlt(txDC(),650,250,280,300,mosc);
-     txDrawText(650,560,930,630,"Москва");
 
-
-
-
+     if (num_question == 1)
+     {
+       form1.draw();
+     }
+     else if (num_question == 2)
+     {
+       form2.draw();
+     }
+     else if (num_question == 3)
+     {
+       form3.draw();
+     }
 
 
 
@@ -68,18 +101,21 @@ int num_question = 1;
      if(txMouseButtons() == 1 &&
       txMouseX()>30 && txMouseX()<310 && txMouseY()>250 && txMouseY()<550 )
      {
-      num_question ++;
+       while (txMouseButtons() == 1) txSleep(20);
+       num_question ++;
      }
 
      if(txMouseButtons() == 1 &&
       txMouseX()>350 && txMouseX()<620 && txMouseY()>250 && txMouseY()<550 )
      {
+      while (txMouseButtons() == 1) txSleep(20);
       num_question ++;
      }
 
      if(txMouseButtons() == 1 &&
       txMouseX()>650 && txMouseX()<940 && txMouseY()>250 && txMouseY()<550 )
      {
+      while (txMouseButtons() == 1) txSleep(20);
       num_question ++;
      }
 
@@ -89,9 +125,7 @@ int num_question = 1;
     txSleep(20);
 
     }
-txDeleteDC(amst);
-txDeleteDC(mosc);
-txDeleteDC(chelyab);
+
 return 0;
 }
 
