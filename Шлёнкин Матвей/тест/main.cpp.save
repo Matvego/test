@@ -29,6 +29,7 @@ struct Forma
   string text_answer2;
   HDC picture_answer3;
   string text_answer3;
+  int n_right_answer;
 
   void draw()
   {
@@ -50,14 +51,19 @@ int main()
 {
 txCreateWindow (1000, 700);
 txTextCursor (false);
+Forma form_list[10];
+
+form_list[0] = {"1.Столица России",txLoadImage ("Pictures/Амстердам.bmp"),"Амстердам",txLoadImage ("Pictures/Челябинск.bmp"),"Челябинск", txLoadImage ("Pictures/Москва.bmp"),"Москва",3};
+form_list[1] = {"2.Столица Нидерландов",txLoadImage ("Pictures/Амстердам.bmp"),"Амстердам",txLoadImage ("Pictures/Челябинск.bmp"),"Челябинск",txLoadImage ("Pictures/Москва.bmp"),"Москва",1};
+form_list[2] = {"3.",txLoadImage ("Pictures/Амстердам.bmp"),"Амстердам",txLoadImage ("Pictures/Челябинск.bmp"),"Челябинск",txLoadImage ("Pictures/Москва.bmp"),"Москва",2};
+Forma form
 
 
-Forma form1 = {"1.Столица России",txLoadImage ("Pictures/Амстердам.bmp"),"Амстердам",txLoadImage ("Pictures/Челябинск.bmp"),"Челябинск",("Pictures/Москва.bmp"),"Москва"};
-Forma form2 = {"2.Столица Нидерландов",txLoadImage ("Pictures/Амстердам.bmp"),"Амстердам",txLoadImage ("Pictures/Челябинск.bmp"),"Челябинск"("Pictures/Москва.bmp"),"Москва"};
-Forma form3 = {"3.",txLoadImage ("Pictures/Амстердам.bmp"),"Амстердам",txLoadImage ("Pictures/Челябинск.bmp"),"Челябинск"("Pictures/Москва.bmp"),"Москва"};
 
-int count_question = 3;
+
+int count_question = 4;
 int num_question = 1;
+score = 0;
     while (num_question <= count_question)
     {
      txSetFillColor(TX_BLACK);
@@ -68,66 +74,49 @@ int num_question = 1;
      txSelectFont ("Comic Sans", 60);
      txSetTextAlign (TA_CENTER);
 
-     if (num_question == 1)
-     {
-       form1.draw();
-     }
-     else if (num_question == 2)
-     {
-       form2.draw();
-     }
-     else if (num_question == 3)
-     {
-       form3.draw();
-     }
+     
+
+     form = form_list[num_question-1].draw();
+     form.draw();
 
 
 
 
+      if(txMouseButtons() == 1 &&
+       txMouseX()>30 && txMouseX()<310 && txMouseY()>250 && txMouseY()<550 )
+      {
 
+        if(form.n_tight_answer == 1) score++;
+        while (txMouseButtons() == 1) txSleep(20);
+        num_question ++;
+      }
 
+      if(txMouseButtons() == 1 &&
+       txMouseX()>350 && txMouseX()<620 && txMouseY()>250 && txMouseY()<550 )
+      {
+       if(form.n_tight_answer == 2) score++;
+       while (txMouseButtons() == 2) txSleep(20);
+       num_question ++;
+      }
 
-
-
-
-
-
-
-
-
-
-
-
-     if(txMouseButtons() == 1 &&
-      txMouseX()>30 && txMouseX()<310 && txMouseY()>250 && txMouseY()<550 )
-     {
+       if(txMouseButtons() == 1 &&
+       txMouseX()>650 && txMouseX()<940 && txMouseY()>250 && txMouseY()<550 )
+      {
+       if(form.n_tight_answer == 3) score++;
        while (txMouseButtons() == 1) txSleep(20);
        num_question ++;
-     }
-
-     if(txMouseButtons() == 1 &&
-      txMouseX()>350 && txMouseX()<620 && txMouseY()>250 && txMouseY()<550 )
-     {
-      while (txMouseButtons() == 1) txSleep(20);
-      num_question ++;
-     }
-
-     if(txMouseButtons() == 1 &&
-      txMouseX()>650 && txMouseX()<940 && txMouseY()>250 && txMouseY()<550 )
-     {
-      while (txMouseButtons() == 1) txSleep(20);
-      num_question ++;
-     }
+      }
 
 
+
+     sprintif("Вы ответили на %d из %d",score,count_question);
+     txDrawText(350,560,620,630,stroka);
 
     txEnd();
     txSleep(20);
 
     }
-txDeleteDC(amst);
-txDeleteDC(mosc);
-txDeleteDC(chelyab);
+
 return 0;
 }
 
