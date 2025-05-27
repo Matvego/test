@@ -1,1 +1,1 @@
-2.Столица Нидерландов,txLoadImagePictures/Амстердам.bmp,Амстерда",txLoadImagePictures/Челябинск.bmp,Челябинск,txLoadImage Pictures/Москва.bmp,Москва,1
+2.Столица Нидерландов,txLoadImagePictures/Амстердам.bmp,Амстердам,txLoadImagePictures/Челябинск.bmp,Челябинск,txLoadImage Pictures/Москва.bmp,Москва,1

@@ -1,14 +1,41 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
+string getpos(string str,int *pos2)
+{
+    int pos1 = *pos2 + 1;
+    *pos2 = str.find(",", pos1);
+    string part = str.substr(pos1, *pos2-pos1);
+
+  return part;
+}
 
 int main()
-{   
-
-
+{
+    setlocale (LC_ALL,"Russian");
+    string str;
     ifstream file("test.txt");
-    getline(
-
-    cout <<  << endl;
+    while(file.good())
+    {
+    getline(file,str);
+    int pos2 = -1;
+    string text_question = getpos(str, &pos2);
+    string picture_answer1 = getpos(str, &pos2);
+    string text_answer1 = getpos(str, &pos2);
+    string picture_answer2 = getpos(str, &pos2);
+    string text_answer2 = getpos(str, &pos2);
+    string picture_answer3 = getpos(str, &pos2);
+    string text_answer3 = getpos(str, &pos2);
+    string n_right_answer = getpos(str, &pos2);
+    cout <<str<< endl;
+    cout <<text_question<< endl;
+    cout <<picture_answer1<< endl;
+    cout <<text_answer1<< endl;
+    cout <<picture_answer2<< endl;
+    cout <<text_answer2<< endl;
+    cout <<picture_answer3<< endl;
+    cout <<text_answer3<< endl;
+    cout <<n_right_answer<< endl;
+    }
     return 0;
 }

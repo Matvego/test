@@ -1,4 +1,6 @@
 #include "TXLib.h"
+#include <fstream>
+using namespace std;
 void drawMaket()
 {
 
@@ -47,22 +49,55 @@ struct Forma
 };
 
 
+string getpos(string str,int *pos2)
+{
+    int pos1 = *pos2 + 1;
+    *pos2 = str.find(",", pos1);
+    string part = str.substr(pos1, *pos2-pos1);
+    return part;
+}
+
+
+
+
+
+
+
+
 int main()
 {
+
+setlocale (LC_ALL,"Russian");
 txCreateWindow (1000, 700);
 txTextCursor (false);
-Forma form_list[10];
+Forma form_list[15];
+int i = 0;
 
-form_list[0] = {"1.Столица России",txLoadImage ("Pictures/Амстердам.bmp"),"Амстердам",txLoadImage ("Pictures/Челябинск.bmp"),"Челябинск", txLoadImage ("Pictures/Москва.bmp"),"Москва",3};
-form_list[1] = {"2.Столица Нидерландов",txLoadImage ("Pictures/Амстердам.bmp"),"Амстердам",txLoadImage ("Pictures/Челябинск.bmp"),"Челябинск",txLoadImage ("Pictures/Москва.bmp"),"Москва",1};
-form_list[2] = {"3.",txLoadImage ("Pictures/Амстердам.bmp"),"Амстердам",txLoadImage ("Pictures/Челябинск.bmp"),"Челябинск",txLoadImage ("Pictures/Москва.bmp"),"Москва",2};
+string str;
+ifstream file("test.txt");
+while(file.good())
+{
+  getline(file,str);
+  int pos2 = -1;
+  form_list[i].text_question = getpos(str, &pos2);
+  form_list[i].picture_answer1 = txLoadImage(getpos(str, &pos2).c_str());
+  form_list[i].text_answer1 = getpos(str, &pos2);
+  form_list[i].picture_answer2 = txLoadImage(getpos(str, &pos2).c_str());
+  form_list[i].text_answer2 = getpos(str, &pos2);
+  form_list[i].picture_answer3 = txLoadImage(getpos(str, &pos2).c_str());
+  form_list[i].text_answer3 = getpos(str, &pos2);
+  form_list[i].n_right_answer = atoi(getpos(str, &pos2).c_str());
+  i++;
+}
+file.close();
+
 
 Forma form;
 
-int count_question = 3;
+int count_question = i;
 int num_question = 1;
 int score = 0;
-char stroka[20];
+char stroka[30];
 
     while (num_question <= count_question)
     {
