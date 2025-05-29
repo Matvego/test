@@ -4,33 +4,37 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
 <tt>
-Build started on: <u>20-05-2025 at 10:07.50</u><br />
-Build ended on: <u>20-05-2025 at 10:08.11</u><p />
-<b>-------------- Build: Debug in тест (compiler: GNU GCC Compiler)---------------</b><br />
-g++.exe -Wall -fexceptions  -g     -c "C:\Шлёнкин Матвей\тест\main.cpp" -o obj\Debug\main.o<br />
+Build started on: <u>29-05-2025 at 10:13.26</u><br />
+Build ended on: <u>29-05-2025 at 10:13.53</u><p />
+<b>-------------- Build: Release in тест (compiler: GNU GCC Compiler)---------------</b><br />
+g++.exe -Wall -fexceptions  -O2     -c "C:\Шлёнкин Матвей\тест\main.cpp" -o obj\Release\main.o<br />
 C:\Шлёнкин Матвей\тест\main.cpp: In function 'void drawMaket()':<br />
-<font color="#0000ff">C:\Шлёнкин Матвей\тест\main.cpp:2:6: warning: no previous declaration for 'void drawMaket()' [-Wmissing-declarations]</font><br />
+<font color="#0000ff">C:\Шлёнкин Матвей\тест\main.cpp:4:6: warning: no previous declaration for 'void drawMaket()' [-Wmissing-declarations]</font><br />
  void drawMaket()<br />
       ^<br />
+C:\Шлёнкин Матвей\тест\main.cpp: In function 'std::string getpos(std::string, int*)':<br />
+<font color="#0000ff">C:\Шлёнкин Матвей\тест\main.cpp:52:8: warning: no previous declaration for 'std::string getpos(std::string, int*)' [-Wmissing-declarations]</font><br />
+ string getpos(string str,int *pos2)<br />
+        ^<br />
 C:\Шлёнкин Матвей\тест\main.cpp: In constructor 'Forma::Forma()':<br />
-<font color="#0000ff">C:\Шлёнкин Матвей\тест\main.cpp:22:8: warning: 'Forma::text_question' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">C:\Шлёнкин Матвей\тест\main.cpp:24:8: warning: 'Forma::text_question' should be initialized in the member initialization list [-Weffc++]</font><br />
  struct Forma<br />
         ^<br />
-<font color="#0000ff">C:\Шлёнкин Матвей\тест\main.cpp:22:8: warning: 'Forma::picture_answer1' should be initialized in the member initialization list [-Weffc++]</font><br />
-<font color="#0000ff">C:\Шлёнкин Матвей\тест\main.cpp:22:8: warning: 'Forma::text_answer1' should be initialized in the member initialization list [-Weffc++]</font><br />
-<font color="#0000ff">C:\Шлёнкин Матвей\тест\main.cpp:22:8: warning: 'Forma::picture_answer2' should be initialized in the member initialization list [-Weffc++]</font><br />
-<font color="#0000ff">C:\Шлёнкин Матвей\тест\main.cpp:22:8: warning: 'Forma::text_answer2' should be initialized in the member initialization list [-Weffc++]</font><br />
-<font color="#0000ff">C:\Шлёнкин Матвей\тест\main.cpp:22:8: warning: 'Forma::picture_answer3' should be initialized in the member initialization list [-Weffc++]</font><br />
-<font color="#0000ff">C:\Шлёнкин Матвей\тест\main.cpp:22:8: warning: 'Forma::text_answer3' should be initialized in the member initialization list [-Weffc++]</font><br />
-<font color="#0000ff">C:\Шлёнкин Матвей\тест\main.cpp:22:8: warning: 'Forma::n_right_answer' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">C:\Шлёнкин Матвей\тест\main.cpp:24:8: warning: 'Forma::picture_answer1' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">C:\Шлёнкин Матвей\тест\main.cpp:24:8: warning: 'Forma::text_answer1' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">C:\Шлёнкин Матвей\тест\main.cpp:24:8: warning: 'Forma::picture_answer2' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">C:\Шлёнкин Матвей\тест\main.cpp:24:8: warning: 'Forma::text_answer2' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">C:\Шлёнкин Матвей\тест\main.cpp:24:8: warning: 'Forma::picture_answer3' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">C:\Шлёнкин Матвей\тест\main.cpp:24:8: warning: 'Forma::text_answer3' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">C:\Шлёнкин Матвей\тест\main.cpp:24:8: warning: 'Forma::n_right_answer' should be initialized in the member initialization list [-Weffc++]</font><br />
 C:\Шлёнкин Матвей\тест\main.cpp: In function 'int main()':<br />
-C:\Шлёнкин Матвей\тест\main.cpp:54:19: note: synthesized method 'Forma::Forma()' first required here <br />
- Forma form_list[10];<br />
+C:\Шлёнкин Матвей\тест\main.cpp:68:19: note: synthesized method 'Forma::Forma()' first required here <br />
+ Forma form_list[15];<br />
                    ^<br />
-g++.exe  -o bin\Debug\тест.exe obj\Debug\main.o     -mwindows<br />
-Output size is 2,18 MB<br />
-<font color="#0000ff">Process terminated with status 0 (0 minutes, 20 seconds)</font><br />
-<font color="#0000ff">0 errors, 9 warnings (0 minutes, 20 seconds)</font><br />
+g++.exe  -o bin\Release\тест.exe obj\Release\main.o   -s   -mwindows<br />
+Output size is 884,50 KB<br />
+<font color="#0000ff">Process terminated with status 0 (0 minutes, 26 seconds)</font><br />
+<font color="#0000ff">0 errors, 10 warnings (0 minutes, 26 seconds)</font><br />
 </tt>
 </body>
 </html>

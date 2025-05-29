@@ -59,11 +59,6 @@ string getpos(string str,int *pos2)
 
 
 
-
-
-
-
-
 int main()
 {
 
@@ -106,7 +101,7 @@ char stroka[30];
      txBegin();
      drawMaket();
      txSetColor (TX_WHITE);
-     txSelectFont ("Comic Sans", 60);
+     txSelectFont ("Comic Sans", 50);
      txSetTextAlign (TA_CENTER);
 
 

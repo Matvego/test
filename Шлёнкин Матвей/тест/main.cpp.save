@@ -1,4 +1,6 @@
 #include "TXLib.h"
+#include <fstream>
+using namespace std;
 void drawMaket()
 {
 
@@ -6,7 +8,8 @@ void drawMaket()
     txSetFillColor(TX_TRANSPARENT);
     txRectangle(50,20,925,205);
 
-    txSetFillColor(TX_TRANSPARENT);
+    HDC Fon = txLoadImage("Fon.bmp");
+    txBitBlt(txDC(), 0, 0, 1000, 700, Fon);
     txRectangle(10,10,990,690);
 
     //txRectangle(30,250,310,550);
@@ -47,23 +50,52 @@ struct Forma
 };
 
 
+string getpos(string str,int *pos2)
+{
+    int pos1 = *pos2 + 1;
+    *pos2 = str.find(",", pos1);
+    string part = str.substr(pos1, *pos2-pos1);
+    return part;
+}
+
+
+
 int main()
 {
+
+setlocale (LC_ALL,"Russian");
 txCreateWindow (1000, 700);
 txTextCursor (false);
-Forma form_list[10];
-
-form_list[0] = {"1.Столица России",txLoadImage ("Pictures/Амстердам.bmp"),"Амстердам",txLoadImage ("Pictures/Челябинск.bmp"),"Челябинск", txLoadImage ("Pictures/Москва.bmp"),"Москва",3};
-form_list[1] = {"2.Столица Нидерландов",txLoadImage ("Pictures/Амстердам.bmp"),"Амстердам",txLoadImage ("Pictures/Челябинск.bmp"),"Челябинск",txLoadImage ("Pictures/Москва.bmp"),"Москва",1};
-form_list[2] = {"3.",txLoadImage ("Pictures/Амстердам.bmp"),"Амстердам",txLoadImage ("Pictures/Челябинск.bmp"),"Челябинск",txLoadImage ("Pictures/Москва.bmp"),"Москва",2};
-Forma form
+Forma form_list[15];
+int i = 0;
 
 
+string str;
+ifstream file("test.txt");
+while(file.good())
+{
+  getline(file,str);
+  int pos2 = -1;
+  form_list[i].text_question = getpos(str, &pos2);
+  form_list[i].picture_answer1 = txLoadImage(getpos(str, &pos2).c_str());
+  form_list[i].text_answer1 = getpos(str, &pos2);
+  form_list[i].picture_answer2 = txLoadImage(getpos(str, &pos2).c_str());
+  form_list[i].text_answer2 = getpos(str, &pos2);
+  form_list[i].picture_answer3 = txLoadImage(getpos(str, &pos2).c_str());
+  form_list[i].text_answer3 = getpos(str, &pos2);
+  form_list[i].n_right_answer = atoi(getpos(str, &pos2).c_str());
+  i++;
+}
+file.close();
 
 
-int count_question = 4;
+Forma form;
+
+int count_question = i;
 int num_question = 1;
-score = 0;
+int score = 0;
+char stroka[30];
+
     while (num_question <= count_question)
     {
      txSetFillColor(TX_BLACK);
@@ -71,12 +103,12 @@ score = 0;
      txBegin();
      drawMaket();
      txSetColor (TX_WHITE);
-     txSelectFont ("Comic Sans", 60);
+     txSelectFont ("Comic Sans", 50);
      txSetTextAlign (TA_CENTER);
 
-     
 
-     form = form_list[num_question-1].draw();
+
+     form = form_list[num_question-1];
      form.draw();
 
 
@@ -86,7 +118,7 @@ score = 0;
        txMouseX()>30 && txMouseX()<310 && txMouseY()>250 && txMouseY()<550 )
       {
 
-        if(form.n_tight_answer == 1) score++;
+        if(form.n_right_answer == 1) score++;
         while (txMouseButtons() == 1) txSleep(20);
         num_question ++;
       }
@@ -94,28 +126,28 @@ score = 0;
       if(txMouseButtons() == 1 &&
        txMouseX()>350 && txMouseX()<620 && txMouseY()>250 && txMouseY()<550 )
       {
-       if(form.n_tight_answer == 2) score++;
-       while (txMouseButtons() == 2) txSleep(20);
+       if(form.n_right_answer == 2) score++;
+       while (txMouseButtons() == 1) txSleep(20);
        num_question ++;
       }
 
        if(txMouseButtons() == 1 &&
        txMouseX()>650 && txMouseX()<940 && txMouseY()>250 && txMouseY()<550 )
       {
-       if(form.n_tight_answer == 3) score++;
+       if(form.n_right_answer == 3) score++;
        while (txMouseButtons() == 1) txSleep(20);
        num_question ++;
       }
-
-
-
-     sprintif("Вы ответили на %d из %d",score,count_question);
-     txDrawText(350,560,620,630,stroka);
 
     txEnd();
     txSleep(20);
 
     }
+
+txSetFillColor(TX_BLACK);
+txClear();
+sprintf(stroka,"Вы ответили на %d из %d",score,count_question);
+txDrawText(0,0,1000,700,stroka);
 
 return 0;
 }

@@ -2,9 +2,9 @@
 2.Столица Нидерландов,Pictures/Амстердам.bmp,Амстердам,Pictures/Челябинск.bmp,Челябинск,Pictures/Москва.bmp,Москва,1
 3.Страна не находящаяся в африке,Pictures/Гватемала.bmp,Гватемала,Pictures/Камерун.bmp,Камерун,Pictures/Чад.bmp,Чад,1
 4.Страна находящаяся во всех полушариях,Pictures/Египет.bmp,Египет,Pictures/Россия.bmp,Россия,Pictures/Кирибати.bmp,Кирибати,3
-5.Городна букву Ч,Pictures/Амстердам.bmp,Амстердам,Pictures/Луиджи.bmp,Луиджи,Pictures/Москва.bmp,Москва,2
-6.Городна букву Ч,Pictures/Амстердам.bmp,Амстердам,Pictures/Челябинск.bmp,Челябинск,Pictures/Москва.bmp,Москва,2
-7.Городна букву Ч,Pictures/Амстердам.bmp,Амстердам,Pictures/Челябинск.bmp,Челябинск,Pictures/Москва.bmp,Москва,2
-8.Городна букву Ч,Pictures/Амстердам.bmp,Амстердам,Pictures/Челябинск.bmp,Челябинск,Pictures/Москва.bmp,Москва,2
-9.Городна букву Ч,Pictures/Амстердам.bmp,Амстердам,Pictures/Челябинск.bmp,Челябинск,Pictures/Москва.bmp,Москва,2
-10.Городна букву Ч,Pictures/Амстердам.bmp,Амстердам,Pictures/Челябинск.bmp,Челябинск,Pictures/Москва.bmp,Москва,2
+5.Кто из них брат Марио,Pictures/Варио.bmp,Варио,Pictures/Луиджи.bmp,Луиджи,Pictures/Валуиджи.bmp,Валуиджи,2
+6.Кто наносит МЕНЬШЕ всего урона,Pictures/КроликУбийца.bmp,Кролик убийца,Pictures/Шалкер.bmp,Шалкер,Pictures/Пчела.bmp,Пчела,3
+7.Корень 121,Pictures/12.bmp,12,Pictures/7.bmp,7,Pictures/11.bmp,11,3
+8.Факториал 7,Pictures/7.bmp,7,Pictures/5040.bmp,5040,Pictures/1007.bmp,1007,2
+9.Год выхода фильма "Один дома",Pictures/1990.bmp,1990,Pictures/1992.bmp,1992,Pictures/1997.bmp,1997,1
+10.Сколько частей "Соник в кино" вышло,Pictures/2.bmp,2,Pictures/3.bmp,3,Pictures/4.bmp,4,2
